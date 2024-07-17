@@ -4,7 +4,7 @@ resource "azurerm_storage_account" "dls" {
   location                 = var.location
   resource_group_name      = var.spoke_resource_group_name
   account_tier             = "Standard"
-  account_replication_type = "GRS"
+  account_replication_type = "LRS"
   tags                     = var.tags
   is_hns_enabled           = true
 }

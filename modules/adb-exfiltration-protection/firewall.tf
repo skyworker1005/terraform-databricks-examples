@@ -45,7 +45,7 @@ data "dns_a_record_set" "scc_relay" {
 
 resource "azurerm_firewall_network_rule_collection" "adbfnetwork" {
   name                = "adbcontrolplanenetwork"
-  azure_firewall_name = azurerm_firewall.hubfw.name
+  azure_firewall_name = "hubfirewall"
   resource_group_name = azurerm_resource_group.this.name
   priority            = 200
   action              = "Allow"
@@ -59,7 +59,7 @@ resource "azurerm_firewall_network_rule_collection" "adbfnetwork" {
     ]
 
     destination_ports = [
-      "443", "8443–8451",
+      "443", "8443-8451",  // 수정된 포트 범위
     ]
 
     destination_addresses = var.webapp_ips
@@ -98,8 +98,8 @@ resource "azurerm_firewall_network_rule_collection" "adbfnetwork" {
       "TCP",
     ]
   }
-
 }
+
 
 
 resource "azurerm_firewall_application_rule_collection" "adbfqdn" {

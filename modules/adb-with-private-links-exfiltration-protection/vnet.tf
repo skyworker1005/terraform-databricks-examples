@@ -108,7 +108,7 @@ resource "azurerm_virtual_network" "hubvnet" {
   address_space       = [var.hubcidr]
   tags                = local.tags
 }
-
+ㅏㅇ
 resource "azurerm_subnet" "hubfw" {
   //name must be fixed as AzureFirewallSubnet
   name                 = "AzureFirewallSubnet"
